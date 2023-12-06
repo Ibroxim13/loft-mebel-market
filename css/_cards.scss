@@ -1,0 +1,194 @@
+.cards__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding-bottom: 50px;
+    flex-wrap: wrap;
+
+    @media screen and (max-width:1250px) {
+        gap: 20px;
+    }
+
+    @media screen and (max-width:1159px) {
+        justify-content: center;
+        gap: 40px;
+    }
+
+    @media screen and (max-width:610px) {
+        gap: 20px;
+    }
+
+    @media screen and (max-width:375px) {
+        gap: 30px;
+    }
+}
+
+.cards__title {
+    margin-bottom: 35px;
+    color: #414141;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 100px;
+}
+
+.card {
+    width: 265px;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 5px;
+
+    @media screen and (max-width:375px) {
+        width: 250px;
+    }
+}
+
+.card__header {
+    width: 225px;
+    height: 150px;
+    margin: 30px auto 0;
+    overflow: hidden;
+
+    @media screen and (max-width:375px) {
+        width: 220px;
+    }
+}
+
+.card__activities__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    position: relative;
+    top: 15px;
+    left: 0;
+    padding: 0 20px;
+}
+
+.sell__percent {
+    color: #000;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.sell__percent__box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.liked__icon {
+    cursor: pointer;
+}
+
+.card__header img {
+    width: 100%;
+    transition: .3s ease-in;
+}
+
+.card__header img:hover {
+    transform: scale(1.1);
+}
+
+.card__bodier {
+    padding: 20px;
+
+    @media screen and (max-width:375px) {
+        padding: 15px;
+    }
+}
+
+.product__name__1 {
+    color: #414141;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 6px;
+}
+
+.product__title {
+    margin-bottom: 9px;
+    color: #414141;
+    font-family: Roboto;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.product__price {
+    margin-bottom: 15px;
+    color: #414141;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.product__size__text {
+    color: #414141;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 8px;
+}
+
+.product__content__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product__box__title {
+    margin-bottom: 8px;
+    color: #C4C4C4;
+    font-family: Roboto;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.product__size {
+    color: #414141;
+    font-family: Roboto;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 17px;
+}
+
+.to__card {
+    width: 100%;
+    background: #245462;
+    border: 0;
+    text-align: center;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 12px 0;
+    cursor: pointer;
+    transition: .1s ease;
+}
+
+.to__card:hover {
+    opacity: 0.9;
+}
+
+.to__card:active {
+    transform: scale(0.98);
+}

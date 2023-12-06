@@ -9,7 +9,8 @@ a {
   color: inherit;
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
 }
 
@@ -422,4 +423,239 @@ ul, li {
   .products__in__sale {
     font-size: 12px;
   }
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header__content {
+  width: 100%;
+  margin: 20px 0 15px;
+  position: relative;
+  height: 450px;
+}
+@media screen and (max-width: 900px) {
+  .header__content {
+    height: 400px;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .header__content {
+    margin-top: 90px;
+    height: 350px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .header__content {
+    height: 300px;
+  }
+}
+
+.slides {
+  display: none;
+}
+
+.slide img {
+  height: 450px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (max-width: 900px) {
+  .slide img {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .slide img {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .slide img {
+    height: 300px;
+  }
+}
+
+.slide {
+  position: relative;
+}
+
+.slide__data {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+@media screen and (max-width: 600px) {
+  .slide__data {
+    left: 5%;
+  }
+}
+
+.header__title {
+  color: #ffffff;
+  font-family: Playfair Display;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 105.3%;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 900px) {
+  .header__title {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .header__title {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .header__title {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+}
+
+.header__text {
+  color: #ffffff;
+  font-family: Roboto Condensed;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140.8%;
+  letter-spacing: 0.32px;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 900px) {
+  .header__text {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .header__text {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .header__text {
+    width: 200px;
+  }
+}
+
+.header__btn {
+  background: #FFF;
+  padding: 14px 25px;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.07);
+  color: var(--text-color, #414141);
+  font-family: Roboto Condensed;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140.8%;
+  letter-spacing: 0.48px;
+  border: 0;
+}
+@media screen and (max-width: 900px) {
+  .header__btn {
+    padding: 10px 20px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .header__btn {
+    padding: 10px 15px;
+  }
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  background: rgba(157, 157, 157, 0.28);
+}
+@media screen and (max-width: 900px) {
+  .prev,
+  .next {
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .prev,
+  .next {
+    bottom: 0;
+    top: 93%;
+    right: 30px;
+    background: rgba(105, 105, 105, 0.28);
+  }
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: #1f1f1f;
+}
+
+.dot {
+  cursor: pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+@media screen and (max-width: 900px) {
+  .dot {
+    height: 10px;
+    width: 10px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .dot {
+    display: none;
+  }
+}
+
+.active,
+.dot:hover {
+  background-color: #3d3d3d;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.dots {
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

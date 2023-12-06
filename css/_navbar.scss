@@ -254,7 +254,6 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
-    // overflow: auto;
     background: #FFF;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.07);
     gap: 10px;
@@ -294,6 +293,7 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    height: 70px;
 
     img {
         @media screen and (max-width:550px) {
@@ -318,8 +318,8 @@
 }
 
 .extra__width {
-    @media screen and (max-width:850px) {
-        width: 115px;
+    @media screen and (max-width:860px) {
+        width: 130px;
     }
 
     @media screen and (max-width:425px) {
@@ -334,23 +334,31 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    height: 24px;
+    padding-bottom: 5px;
 
     @media screen and (max-width:950px) {
-        font-size: 14px;
+        font-size: 14px !important;
     }
 
     @media screen and (max-width:425px) {
-        font-size: 12px;
+        font-size: 12px !important;
     }
 }
 
-.products__in__sale {
+.product__name:hover {
+    border-bottom: 2px solid #245462;
+}
+
+.products__in__sale span {
     color: #D74444;
     font-family: Roboto;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    padding-bottom: 5px;
+    height: 24px;
 
     @media screen and (max-width:950px) {
         font-size: 14px;
@@ -363,4 +371,8 @@
     @media screen and (max-width:425px) {
         font-size: 12px;
     }
+}
+
+.products__in__sale span:hover{
+    border-bottom: 2px solid #D74444; 
 }

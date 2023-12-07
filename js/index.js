@@ -25,7 +25,7 @@ function innerCards(data) {
                             <img src="./img/sell-icon.png" alt="">
                             <p class="sell__percent">25%</p>
                         </div>
-                        <div class="${element.saved ? "liked__icon__active" : "liked__icon"}" onclick = "getBestSellerProduct(${element.id})"><i class="bi bi-heart"></i></div>
+                        <div class="${element.saved ? "liked__icon__active" : "liked__icon"}" onclick = "getProduct(${element.id})"><i class="bi bi-heart"></i></div>
                     </div>
                     <div class="card__header"><img src="${element.img}"></div>
                     <div class="card__bodier">
@@ -60,7 +60,7 @@ function innerCards(data) {
     });
 }
 
-function getBestSellerProduct(id) {
+function getProduct(id) {
     fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers/${id}`)
         .then(res => res.json())
         .then(data => {

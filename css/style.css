@@ -986,6 +986,7 @@ li {
   font-weight: 900;
   text-align: right;
   line-height: normal;
+  cursor: pointer;
 }
 @media screen and (max-width: 857px) {
   .footer__logo {

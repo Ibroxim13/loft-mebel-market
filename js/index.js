@@ -47,14 +47,18 @@ function currentSlide(n) {
 
 let bestSellerProducts = [];
 
-fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers`, {
-    method: "GET",
-})
-    .then(res => res.json())
-    .then(data => {
-        bestSellerProducts = data;
-        innerCards(bestSellerProducts);
+function getAllProducts() {
+    fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers`,{
+        method: "GET",
     })
+        .then(res => res.json())
+        .then(data => {
+            bestSellerProducts = data;
+            innerCards(bestSellerProducts);
+        })
+}
+
+getAllProducts();
 
 function innerCards(data) {
     cardsContent.innerHTML = "";
@@ -66,7 +70,7 @@ function innerCards(data) {
                             <img src="./img/sell-icon.png" alt="">
                             <p class="sell__percent">25%</p>
                         </div>
-                        <div class="liked__icon"><i class="bi bi-heart"></i></div>
+                        <div class="${element.saved ? "liked__icon__active" : "liked__icon"}" onclick = "getBestSellerProduct(${element.id})"><i class="bi bi-heart"></i></div>
                     </div>
                     <div class="card__header"><img src="${element.img}"></div>
                     <div class="card__bodier">
@@ -101,4 +105,41 @@ function innerCards(data) {
     });
 }
 
+function getBestSellerProduct(id) {
+    fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            if (data.saved) {
+                changeProductStatusToFalse(data);
+            }
+            else {
+                changeProductStatusToTrue(data);
+            }
+        })
+}
 
+function changeProductStatusToTrue(data) {
+    data.saved = true;
+    fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers/${data.id}`, {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+        .then(item => item.json())
+        .then(data => getAllProducts())
+}
+
+function changeProductStatusToFalse(data) {
+    data.saved = false;
+    fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers/${data.id}`, {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+        .then(item => item.json())
+        .then(data => getAllProducts())
+}

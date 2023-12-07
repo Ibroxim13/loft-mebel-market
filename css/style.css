@@ -765,11 +765,12 @@ li {
 
 .liked__icon {
   cursor: pointer;
-  transition: 0.1s;
+  color: #000;
 }
 
-.liked__icon:active {
-  transform: scale(1.1);
+.liked__icon__active {
+  color: red;
+  cursor: pointer;
 }
 
 .card__header img {

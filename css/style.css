@@ -1138,4 +1138,34 @@ li {
   .hallway__cards__content {
     gap: 30px;
   }
+}
+
+.living__room__cards__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding-bottom: 50px;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 1250px) {
+  .living__room__cards__content {
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 1159px) {
+  .living__room__cards__content {
+    justify-content: center;
+    gap: 40px;
+  }
+}
+@media screen and (max-width: 610px) {
+  .living__room__cards__content {
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .living__room__cards__content {
+    gap: 30px;
+  }
 }/*# sourceMappingURL=style.css.map */

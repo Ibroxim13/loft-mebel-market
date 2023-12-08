@@ -257,6 +257,10 @@
     color: #fff;
     font-size: 12px;
     font-family: Roboto;
+
+    @media screen and (max-width:550px) {
+        left: -22px;
+    }
 }
 
 .navbar__activity {
@@ -285,7 +289,7 @@
 
     @media screen and (max-width:550px) {
         box-shadow: 0 0 0;
-        height: 80px;
+        height: 90px;
         align-items: start;
         padding: 0 5px;
     }

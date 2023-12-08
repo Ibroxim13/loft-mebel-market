@@ -1,17 +1,22 @@
 const bedroomCradsContent = document.querySelector(".bedroom__cards__content");
-
+const bedroomProductsLink = "https://652553ed67cfb1e59ce71adc.mockapi.io/bedrooms"
 let bedroomProducts = [];
 
-fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/bedrooms`, {
-    method: "GET",
-})
-    .then(res => res.json())
-    .then(data => {
-        bedroomProducts = data;
-        innerKitchenCards(bedroomProducts);
-    })
 
-function innerKitchenCards(data) {
+function getAllBedroomProducts() {
+    fetch(`${bedroomProductsLink}`, {
+        method: "GET",
+    })
+        .then(res => res.json())
+        .then(data => {
+            bedroomProducts = data;
+            innerCards(bedroomProducts);
+        })
+}
+
+getAllBedroomProducts();
+
+function innerCards(data) {
     bedroomCradsContent.innerHTML = "";
     data.forEach(element => {
         bedroomCradsContent.innerHTML += `
@@ -21,7 +26,7 @@ function innerKitchenCards(data) {
                             <img src="./img/sell-icon.png" alt="">
                             <p class="sell__percent">25%</p>
                         </div>
-                        <div class="liked__icon"><i class="bi bi-heart"></i></div>
+                        <div class="${element.saved ? "liked__icon__active" : "liked__icon"}"><i class="bi bi-heart" onclick= "getBedroomProduct(${element.id})"></i></div>
                     </div>
                     <div class="card__header"><img src="${element.img}"></div>
                     <div class="card__bodier">
@@ -54,4 +59,30 @@ function innerKitchenCards(data) {
                 </div>
             `
     });
+}
+
+function getBedroomProduct(id) {
+    fetch(`${bedroomProductsLink}/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            changeBedroomProductStatus(data)
+        })
+}
+
+function changeBedroomProductStatus(data) {
+    if (data.saved) {
+        data.saved = false;
+    }
+    else {
+        data.saved = true;
+    }
+    fetch(`${bedroomProductsLink}/${data.id}`, {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+        .then(item => item.json())
+        .then(data => getAllBedroomProducts())
 }

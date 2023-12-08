@@ -1,27 +1,31 @@
-const kitchenCradsContent = document.querySelector(".kitchen__cards__content");
-
+const kitchenCardsContent = document.querySelector(".kitchen__cards__content");
+const kitchenProductsLink = "https://652553ed67cfb1e59ce71adc.mockapi.io/kitchens"
 let kitchenProducts = [];
 
-fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/kitchens`, {
-    method: "GET",
-})
-    .then(res => res.json())
-    .then(data => {
-        kitchenProducts = data;
-        innerKitchenCards(kitchenProducts);
+function getAllKitchenProducts() {
+    fetch(`${kitchenProductsLink}`, {
+        method: "GET",
     })
+        .then(res => res.json())
+        .then(data => {
+            kitchenProducts = data;
+            innerCards(kitchenProducts);
+        })
+}
 
-function innerKitchenCards(data) {
-    kitchenCradsContent.innerHTML = "";
+getAllKitchenProducts();
+
+function innerCards(data) {
+    kitchenCardsContent.innerHTML = "";
     data.forEach(element => {
-        kitchenCradsContent.innerHTML += `
+        kitchenCardsContent.innerHTML += `
                 <div class="card">
                 <div class="card__activities__content">
                         <div class="sell__percent__box">
                             <img src="./img/sell-icon.png" alt="">
                             <p class="sell__percent">25%</p>
                         </div>
-                        <div class="liked__icon"><i class="bi bi-heart"></i></div>
+                        <div class="${element.saved ? "liked__icon__active" : "liked__icon"}"><i class="bi bi-heart" onclick = "getKitchenProduct(${element.id})"></i></div>
                     </div>
                     <div class="card__header"><img src="${element.img}"></div>
                     <div class="card__bodier">
@@ -54,4 +58,30 @@ function innerKitchenCards(data) {
                 </div>
             `
     });
+}
+
+function getKitchenProduct(id) {
+    fetch(`${kitchenProductsLink}/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            changeKitchenProductStatus(data)
+        })
+}
+
+function changeKitchenProductStatus(data) {
+    if (data.saved) {
+        data.saved = false;
+    }
+    else {
+        data.saved = true;
+    }
+    fetch(`${kitchenProductsLink}/${data.id}`, {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-type": "application/json"
+        }
+    })
+        .then(item => item.json())
+        .then(data => getAllKitchenProducts())
 }

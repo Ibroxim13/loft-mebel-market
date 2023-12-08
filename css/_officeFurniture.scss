@@ -1,0 +1,25 @@
+.office__furniture__cards__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding-bottom: 50px;
+    flex-wrap: wrap;
+
+    @media screen and (max-width:1250px) {
+        gap: 20px;
+    }
+
+    @media screen and (max-width:1159px) {
+        justify-content: center;
+        gap: 40px;
+    }
+
+    @media screen and (max-width:610px) {
+        gap: 20px;
+    }
+
+    @media screen and (max-width:375px) {
+        gap: 30px;
+    }
+}

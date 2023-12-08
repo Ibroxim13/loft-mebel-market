@@ -1,9 +1,9 @@
 const cardsContent = document.querySelector(".cards__content")
-
+const bestSellerProductsLink = "https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers"
 let bestSellerProducts = [];
 
 function getAllProducts() {
-    fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers`,{
+    fetch(`${bestSellerProductsLink}`, {
         method: "GET",
     })
         .then(res => res.json())
@@ -61,34 +61,21 @@ function innerCards(data) {
 }
 
 function getProduct(id) {
-    fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers/${id}`)
+    fetch(`${bestSellerProductsLink}/${id}`)
         .then(res => res.json())
         .then(data => {
-            if (data.saved) {
-                changeProductStatusToFalse(data);
-            }
-            else {
-                changeProductStatusToTrue(data);
-            }
+            changeProductStatus(data)
         })
 }
 
-function changeProductStatusToTrue(data) {
-    data.saved = true;
-    fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers/${data.id}`, {
-        method: "PUT",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-type": "application/json"
-        }
-    })
-        .then(item => item.json())
-        .then(data => getAllProducts())
-}
-
-function changeProductStatusToFalse(data) {
-    data.saved = false;
-    fetch(`https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers/${data.id}`, {
+function changeProductStatus(data) {
+    if (data.saved) {
+        data.saved = false;
+    }
+    else{
+        data.saved = true;
+    }
+    fetch(`${bestSellerProductsLink}/${data.id}`, {
         method: "PUT",
         body: JSON.stringify(data),
         headers: {

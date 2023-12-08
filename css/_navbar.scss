@@ -243,6 +243,22 @@
     font-family: Roboto;
 }
 
+.counter__liked__products {
+    position: absolute;
+    top: -2px;
+    left: -36px;
+    width: 15px;
+    height: 15px;
+    background-color: #D74444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 12px;
+    font-family: Roboto;
+}
+
 .navbar__activity {
     position: relative;
 }

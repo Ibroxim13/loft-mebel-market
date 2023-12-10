@@ -307,6 +307,11 @@ li {
   font-size: 12px;
   font-family: Roboto;
 }
+@media screen and (max-width: 550px) {
+  .counter__liked__products {
+    left: -22px;
+  }
+}
 
 .navbar__activity {
   position: relative;
@@ -337,7 +342,7 @@ li {
 @media screen and (max-width: 550px) {
   .products__type__row {
     box-shadow: 0 0 0;
-    height: 80px;
+    height: 90px;
     align-items: start;
     padding: 0 5px;
   }
@@ -1245,4 +1250,8 @@ li {
   .children__cards__content {
     gap: 30px;
   }
+}
+
+.liked__products {
+  margin: 70px 0;
 }/*# sourceMappingURL=style.css.map */

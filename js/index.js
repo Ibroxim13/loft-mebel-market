@@ -1,7 +1,10 @@
 const cardsContent = document.querySelector(".cards__content")
-const bestSellerProductsLink = "https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers"
+const likedIcon = document.querySelector(".navbar__activity .bi-heart");
+const bestSellerProductsLink = "https://652553ed67cfb1e59ce71adc.mockapi.io/bestsellers";
+let likedProducts = [];
 let bestSellerProducts = [];
 
+getAllProducts();
 function getAllProducts() {
     fetch(`${bestSellerProductsLink}`, {
         method: "GET",
@@ -10,10 +13,10 @@ function getAllProducts() {
         .then(data => {
             bestSellerProducts = data;
             innerCards(bestSellerProducts);
+            likedProducts = data.filter(item => item.saved == true);
+            innerLikedCount();
         })
 }
-
-getAllProducts();
 
 function innerCards(data) {
     cardsContent.innerHTML = "";
@@ -27,7 +30,7 @@ function innerCards(data) {
                         </div>
                         <div class="${element.saved ? "liked__icon__active" : "liked__icon"}" onclick = "getProduct(${element.id})"><i class="bi bi-heart"></i></div>
                     </div>
-                    <div class="card__header"><img src="${element.img}"></div>
+                    <div class="card__header"><img src="${element.img}" onclick = "getIdToDisplay(${element.id})"></div>
                     <div class="card__bodier">
                         <h3 class="product__name__1">${element.name}</h3>
                         <div class="product__title">${element.title}</div>
@@ -57,7 +60,7 @@ function innerCards(data) {
                     </div>
                 </div>
             `
-    });
+    })
 }
 
 function getProduct(id) {
@@ -72,7 +75,7 @@ function changeProductStatus(data) {
     if (data.saved) {
         data.saved = false;
     }
-    else{
+    else {
         data.saved = true;
     }
     fetch(`${bestSellerProductsLink}/${data.id}`, {
@@ -84,4 +87,25 @@ function changeProductStatus(data) {
     })
         .then(item => item.json())
         .then(data => getAllProducts())
+}
+
+function innerLikedCount() {
+    if (likedProducts.length > 0) {
+        likedIcon.style.color = "red";
+    }
+    else {
+        likedIcon.style.color = "black";
+    }
+
+    localStorage.setItem("liked", JSON.stringify(likedProducts))
+}
+
+function getIdToDisplay(id) {
+    displayData = {
+        id: id,
+        url: bestSellerProductsLink,
+        type: "Хиты продаж"
+    }
+    localStorage.setItem("dataToDisplay", JSON.stringify(displayData));
+    window.location.href = "aboutProduct.html";
 }

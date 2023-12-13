@@ -1,5 +1,7 @@
 const ChildrenCardsContent = document.querySelector(".children__cards__content");
+const likedIcon = document.querySelector(".navbar__activity .bi-heart");
 const childrenProductsLink = "https://652553ed67cfb1e59ce71adc.mockapi.io/Children";
+let likedProducts = [];
 let childrenProducts = [];
 
 
@@ -11,6 +13,8 @@ function getAllChildrenProducts() {
         .then(data => {
             childrenProducts = data;
             innerCards(childrenProducts);
+            likedProducts = data.filter(item => item.saved == true);
+            innerLikedCount()
         })
 }
 
@@ -28,7 +32,7 @@ function innerCards(data) {
                         </div>
                         <div class="${element.saved ? "liked__icon__active" : "liked__icon"}"><i class="bi bi-heart" onclick= "getChildrenProduct(${element.id})"></i></div>
                     </div>
-                    <div class="card__header"><img src="${element.img}"></div>
+                    <div class="card__header"><img src="${element.img}" onclick = "getIdToDisplay(${element.id})"></div>
                     <div class="card__bodier">
                         <h3 class="product__name__1">${element.name}</h3>
                         <div class="product__title">${element.title}</div>
@@ -85,4 +89,25 @@ function changeChildrenProductStatus(data) {
     })
         .then(item => item.json())
         .then(data => getAllChildrenProducts())
+}
+
+function innerLikedCount() {
+    if (likedProducts.length > 0) {
+        likedIcon.style.color = "red";
+    }
+    else {
+        likedIcon.style.color = "black";
+    }
+
+    localStorage.setItem("liked", JSON.stringify(likedProducts))
+}
+
+function getIdToDisplay(id) {
+    displayData = {
+        id: id,
+        url: childrenProductsLink,
+        type: "Хиты продаж"
+    }
+    localStorage.setItem("dataToDisplay", JSON.stringify(displayData));
+    window.location.href = "aboutProduct.html";
 }

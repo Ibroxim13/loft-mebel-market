@@ -1,5 +1,7 @@
 const hallwayCardsContent = document.querySelector(".hallway__cards__content");
+const likedIcon = document.querySelector(".navbar__activity .bi-heart");
 const hallwayProductsLink = "https://652553ed67cfb1e59ce71adc.mockapi.io/hallways";
+let likedProducts = [];
 let hallwayProducts = [];
 
 function getAllHallwayProducts() {
@@ -10,6 +12,8 @@ function getAllHallwayProducts() {
         .then(data => {
             hallwayProducts = data;
             innerCards(hallwayProducts);
+            likedProducts = data.filter(item => item.saved == true);
+            innerLikedCount()
         })
 }
 
@@ -27,7 +31,7 @@ function innerCards(data) {
                         </div>
                         <div class="${element.saved ? "liked__icon__active" : "liked__icon"}"><i class="bi bi-heart" onclick = "getHallwayProduct(${element.id})"></i></div>
                     </div>
-                    <div class="card__header"><img src="${element.img}"></div>
+                    <div class="card__header"><img src="${element.img}" onclick = "getIdToDisplay(${element.id})"></div>
                     <div class="card__bodier">
                         <h3 class="product__name__1">${element.name}</h3>
                         <div class="product__title">${element.title}</div>
@@ -84,4 +88,25 @@ function changeHallwayProductStatus(data) {
     })
         .then(item => item.json())
         .then(data => getAllHallwayProducts())
+}
+
+function innerLikedCount() {
+    if (likedProducts.length > 0) {
+        likedIcon.style.color = "red";
+    }
+    else {
+        likedIcon.style.color = "black";
+    }
+
+    localStorage.setItem("liked", JSON.stringify(likedProducts))
+}
+
+function getIdToDisplay(id) {
+    displayData = {
+        id: id,
+        url: hallwayProductsLink,
+        type: "Хиты продаж"
+    }
+    localStorage.setItem("dataToDisplay", JSON.stringify(displayData));
+    window.location.href = "aboutProduct.html";
 }

@@ -1,3 +1,43 @@
-.liked__products{
+.liked__products {
     margin: 70px 0;
+}
+
+.liked__products__content {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 40px;
+    padding-bottom: 50px;
+    flex-wrap: wrap;
+
+    @media screen and (max-width:1250px) {
+        gap: 20px;
+    }
+
+    @media screen and (max-width:1159px) {
+        justify-content: center;
+    }
+
+    @media screen and (max-width:610px) {
+        gap: 20px;
+    }
+}
+
+.no__liked__products__text {
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    font-family: Roboto;
+
+    @media screen and (max-width:610px) {
+        font-size: 16px;
+    }
+
+    @media screen and (max-width:375px) {
+        font-size: 14px;
+    }
+}
+
+.no__liked__products__img {
+    margin: 0 auto;
 }

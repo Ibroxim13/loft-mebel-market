@@ -1,0 +1,316 @@
+.about__product {
+    margin: 50px 0;
+
+    @media screen and (max-width:480px) {
+       margin-top: 100px;
+    }
+}
+
+.about__product__navigator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.location__name {
+    color: #969696;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    @media screen and (max-width:410px) {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+}
+
+.about__product__content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+
+    @media screen and (max-width:900px) {
+        flex-direction: column;
+    }
+
+    @media screen and (max-width:480px) {
+        gap: 20px;
+    }
+}
+
+.about__product__left {
+    width: 48%;
+    height: 370px;
+    overflow: hidden;
+
+    @media screen and (max-width:1075px) {
+        width: 45%;
+        height: 400px;
+    }
+
+    @media screen and (max-width:900px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width:700px) {
+        height: 300px;
+    }
+
+    @media screen and (max-width:480px) {
+        height: 250px;
+    }
+
+    @media screen and (max-width:410px) {
+        height: 200px;
+    }
+
+    @media screen and (max-width:480px) {
+        height: 170px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        object-fit: cover;
+        transition: 0.4s ease-in;
+    }
+}
+
+.about__product__left img:hover {
+    transform: scale(1.1);
+}
+
+.about__product__right {
+    width: 48%;
+    padding-top: 8px;
+
+    @media screen and (max-width:1075px) {
+        width: 55%;
+    }
+
+    @media screen and (max-width:900px) {
+        width: 100%;
+    }
+    
+    img {
+        cursor: pointer;
+        margin-bottom: 5px;
+    }
+}
+
+.about__product__name {
+    margin-bottom: 10px;
+    color: var(--text-color, #414141);
+    font-family: Roboto;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    @media screen and (max-width:502px) {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+
+    @media screen and (max-width:410px) {
+        font-size: 20px;
+    }
+}
+
+.about__product__title {
+    margin-bottom: 15px;
+    color: #686868;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.about__product__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+
+    @media screen and (max-width:975px) {
+        gap: 20px;
+    }
+
+    @media screen and (max-width:900px) {
+        justify-content: start;
+        gap: 40px;
+    }
+
+    @media screen and (max-width:502px) {
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    @media screen and (max-width:480px) {
+        flex-direction: column;
+        align-items: start;
+        gap: 15px;
+    }
+}
+
+.about__product__price {
+    color: var(--text-color, #414141);
+    font-family: Roboto;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+    @media screen and (max-width:975px) {
+        font-size: 22px;
+    }
+}
+
+.about__product__buy__btn {
+    background: var(--main-color, #245462);
+    padding: 15px 70px;
+    border: 0;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    transition: 0.2s;
+
+    @media screen and (max-width:975px) {
+        padding: 12px 50px;
+        font-size: 14px;
+    }
+
+    @media screen and (max-width:502px) {
+        padding: 10px 40px;
+    }
+}
+
+.about__product__buy__btn:hover {
+    opacity: 0.8;
+}
+
+.add__to__liked {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .bi-heart {
+        cursor: pointer;
+        font-size: 18px;
+    }
+}
+
+.add__to__liked__text {
+    color: var(--text-color, #414141);
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.about__product__info__row {
+    display: flex;
+    gap: 40px;
+
+    @media screen and (max-width:410px) {
+        gap: 20px;
+    }
+}
+
+.about__product__subtitle {
+    li:nth-child(1) {
+        color: var(--text-color, #414141);
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-bottom: 10px;
+    }
+
+    li:nth-child(2) {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: var(--text-color, #414141);
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+
+        button {
+            border: 0;
+            width: 40px;
+            height: 40px;
+            background: #245462;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 18px;
+
+            @media screen and (max-width:502px) {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    }
+}
+
+.about__product__info {
+    li:nth-child(1) {
+        color: var(--text-color, #414141);
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        margin-bottom: 10px;
+        line-height: normal;
+    }
+
+    li:nth-child(2) {
+        color: var(--text-color, #414141);
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-top: 20px;
+    }
+}
+
+.about__product__info__title {
+    margin-bottom: 10px;
+    margin-top: 30px;
+    color: var(--text-color, #414141);
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.about__product__info__text {
+    color: #686868;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 148.688%;
+}

@@ -288,12 +288,24 @@ li {
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 12px;
+  font-size: 11px;
   font-family: Roboto;
 }
 
 .navbar__activity {
   position: relative;
+}
+.navbar__activity .bi-heart {
+  cursor: pointer;
+  font-size: 18px;
+}
+.navbar__activity .bi-bag {
+  cursor: pointer;
+  font-size: 18px;
+}
+.navbar__activity .bi-person {
+  font-size: 22px;
+  cursor: pointer;
 }
 
 .products__type__row {

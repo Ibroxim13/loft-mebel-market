@@ -56,7 +56,7 @@ function innerCards(data) {
                                 <p class="product__size">${element.height} СМ</p>
                             </div>
                         </div>
-                        <button class="to__card">Добавить в корзину</button>
+                        <button class="to__card" onclick="getId(${element.id})">Добавить в корзину</button>
                     </div>
                 </div>
             `
@@ -108,4 +108,24 @@ function getIdToDisplay(id) {
     }
     localStorage.setItem("dataToDisplay", JSON.stringify(displayData));
     window.location.href = "aboutProduct.html";
+}
+
+function getId(id) {
+    fetch(`${bestSellerProductsLink}/${id}`)
+        .then(res => res.json())
+        .then(data => changeSaved(data))
+}
+
+function changeSaved(data) {
+    if (!data.active) {
+        data.active = true;
+        fetch(`${bestSellerProductsLink}/${data.id}`, {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+            .then(item => item.json())
+    }
 }
